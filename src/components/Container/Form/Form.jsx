@@ -4,6 +4,14 @@ import search_image from '../../../assets/images/search_form.svg'
 import search from '../../../assets/images/search.svg'
 import {Select} from 'antd'
 import arrow from '../../../assets/images/icons-arrow-chevron-down-copy.svg'
+import {withRequestFetching} from '../../../hoc/withRequestFetching'
+import {compose} from 'redux'
+import {okvedArray} from '../../../data/okved'
+import {regionArray} from '../../../data/region'
+import {otraslArray} from '../../../data/otrasl'
+import {formaArray} from '../../../data/forma'
+import {attrArray} from '../../../data/attr'
+import {actingArray} from '../../../data/acting'
 
 const { Option } = Select;
 const Form = (props) => {
@@ -63,7 +71,13 @@ const Form = (props) => {
                                     placeholder="ОКВЭД"
                                     style={{ width: '100%' }}
                                 >
-                                    {children}
+                                    {
+                                        okvedArray.map((item) => {
+                                            return (
+                                                <Option value={item} key={item}>{item}</Option>
+                                            )
+                                        })
+                                    }
                                 </Select>
                                 <img className={s.arrow} src={arrow} alt='arrow' />
                             </div>
@@ -77,7 +91,13 @@ const Form = (props) => {
                                     // dropdownClassName={s.drop}
                                     style={{ width: '100%' }}
                                 >
-                                    {children}
+                                    {
+                                        attrArray.map((item) => {
+                                            return (
+                                                <Option value={item} key={item}>{item}</Option>
+                                            )
+                                        })
+                                    }
                                 </Select>
                                 <img className={s.arrow} src={arrow} alt='arrow' />
                             </div>
@@ -92,9 +112,13 @@ const Form = (props) => {
                                         }
                                         size={'default'}
                                         style={{ width: '100%' }}>
-                                    <Option value="jack">Люся</Option>
-                                    <Option value="lucy">Том</Option>
-                                    <Option value="tom">Основной ТАСС</Option>
+                                    {
+                                        actingArray.map((item) => {
+                                            return (
+                                                <Option value={item} key={item}>{item}</Option>
+                                            )
+                                        })
+                                    }
                                 </Select>
 
                                 <img className={s.arrow} src={arrow} alt='arrow' />
@@ -109,7 +133,13 @@ const Form = (props) => {
                                     // dropdownClassName={s.drop}
                                     style={{ width: '100%' }}
                                 >
-                                    {children}
+                                    {
+                                        actingArray.map((item) => {
+                                            return (
+                                                <Option value={item} key={item}>{item}</Option>
+                                            )
+                                        })
+                                    }
                                 </Select>
                                 <img className={s.arrow} src={arrow} alt='arrow' />
                             </div>
@@ -124,7 +154,13 @@ const Form = (props) => {
                                         }
                                         size={'default'}
                                         style={{ width: '100%' }}>
-                                    {children}
+                                    {
+                                        regionArray.map((item) => {
+                                            return (
+                                                <Option value={item} key={item}>{item}</Option>
+                                            )
+                                        })
+                                    }
                                 </Select>
                                 <img className={s.arrow} src={arrow} alt='arrow' />
                             </div>
@@ -138,7 +174,13 @@ const Form = (props) => {
                                     // dropdownClassName={s.drop}
                                     style={{ width: '100%' }}
                                 >
-                                    {children}
+                                    {
+                                        otraslArray.map((item) => {
+                                            return (
+                                                <Option value={item} key={item}>{item}</Option>
+                                            )
+                                        })
+                                    }
                                 </Select>
                                 <img className={s.arrow} src={arrow} alt='arrow' />
                             </div>
@@ -154,7 +196,13 @@ const Form = (props) => {
                                         }
                                         size={'default'}
                                         style={{ width: '100%' }}>
-                                    {children}
+                                    {
+                                        formaArray.map((item, index) => {
+                                            return (
+                                                <Option value={item} key={item}>{item}</Option>
+                                            )
+                                        })
+                                    }
                                 </Select>
                                 <img className={s.arrow} src={arrow} alt='arrow' />
                             </div>
@@ -163,7 +211,7 @@ const Form = (props) => {
                     </div>
 
                     <div className={s.buttons}>
-                        <button className={s.saveBtn}>
+                        <button onClick={props.handleSaveFilters} className={s.saveBtn}>
                             Сохранить данные о компании
                         </button>
                         <button className={s.submitBtn}>
@@ -176,4 +224,6 @@ const Form = (props) => {
     )
 }
 
-export default Form
+export default compose(
+    withRequestFetching
+)(Form)

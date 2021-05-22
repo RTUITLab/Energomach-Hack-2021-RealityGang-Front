@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {motion} from 'framer-motion'
 import Form from './Form'
-import {fillInn, fillOgrn} from '../../../redux/filter-reducer'
+import {fillInn, fillOgrn, getFilters, saveFilters} from '../../../redux/filter-reducer'
 import {useDispatch, useSelector} from 'react-redux'
 
 const FormContainer = (props) => {
@@ -21,7 +21,10 @@ const FormContainer = (props) => {
     const [region, setRegion] = useState('')
     const [form, setForm] = useState('')
 
-    // todo  - Сохранение + загрузка данных
+    useEffect(() => {
+        dispatch(getFilters())
+    }, [])
+
     useEffect(() => {
         if(filters.ogrn) {
             setOgrn(filters.ogrn)
@@ -44,6 +47,20 @@ const FormContainer = (props) => {
     const handleFindOgrn = () => {
         dispatch(fillOgrn(ogrn))
     }
+    const handleSaveFilters = () => {
+        let object = {
+            inn: inn,
+            ogrn: ogrn,
+            okved: okved,
+            attrs: attrs,
+            osn_tass: osn_tass,
+            dop_tass: dop_tass,
+            otr: otr,
+            region: region,
+            form: form,
+        }
+        dispatch(saveFilters(object))
+    }
 
     const animations = {
         hidden: {
@@ -65,7 +82,7 @@ const FormContainer = (props) => {
                   handleFindOgrn={handleFindOgrn}
                   ogrn={ogrn} setOgrn={setOgrn} form={form} okved={okved} region={region} osn_tass={osn_tass} otr={otr}
                   attrs={attrs} setOkved={setOkved} setAttrs={setAttrs} setOsnTass={setOsnTass} setDopTass={setDopTass} setRegion={setRegion}
-                  setForm={setForm} setOtr={setOtr}
+                  setForm={setForm} setOtr={setOtr} handleSaveFilters={handleSaveFilters}
             />
         </motion.div>
     )

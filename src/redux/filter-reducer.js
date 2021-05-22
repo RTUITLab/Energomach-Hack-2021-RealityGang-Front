@@ -31,13 +31,13 @@ const filterReducer = (state = initialState, action) => {
 export const toggleIsFetching = (isFetch) => ({type: SET_IS_FETCH, isFetch})
 export const setFilters = (filters) => ({type: SET_FILTERS, filters})
 
-export const fillInn = (inn) => { //Логин
+export const fillInn = (inn) => { //Информация по ИНН
     return async (dispatch) => {
         dispatch(toggleIsFetching(true))
         try {
             let response = await filterApi.fillInn(inn)
             console.log('inn', response)
-            if(response.data.status === 404) {
+            if(response.status === 404) {
                 dispatch(toast.error('Ничего не найдено по ИНН'))
             }
             if(response.status === 200) {
@@ -52,23 +52,67 @@ export const fillInn = (inn) => { //Логин
         }
     }
 }
-export const fillOgrn = (ogrn) => { //Логин
+export const fillOgrn = (ogrn) => { //Информация по ОГРН
     return async (dispatch) => {
         dispatch(toggleIsFetching(true))
         try {
             let response = await filterApi.fillOgrn(ogrn)
             console.log('ogrn', response)
-            if(response.data.status === 404) {
+            if(response.status === 404) {
                 dispatch(toast.error('Ничего не найдено по ОГРН'))
             }
-            if(response.data.status === 200) {
-                dispatch(setFilters(response))
+            if(response.status === 200) {
+                dispatch(setFilters(response.data))
             }
             dispatch(toggleIsFetching(false))
         }
         catch (error) {
             // console.log('ogrn error', error.toJSON())
             // window.alert('ogrn error')
+            dispatch(toggleIsFetching(false))
+        }
+    }
+}
+export const getFilters = () => { //Получить фильтры
+    return async (dispatch) => {
+        dispatch(toggleIsFetching(true))
+        try {
+            let response = await filterApi.getFilters()
+            console.log('getFilters', response)
+            if(response.status === 404) {
+                dispatch(toast.error('Ничего не найдено по пользователю'))
+            }
+            if(response.status === 200) {
+                dispatch(setFilters(response.data))
+            }
+            dispatch(toggleIsFetching(false))
+        }
+        catch (error) {
+            // console.log('getFilters error', error.toJSON())
+            // window.alert('getFilters error')
+            dispatch(toggleIsFetching(false))
+        }
+    }
+}
+export const saveFilters = (company) => { //Сохранить фильтры
+    return async (dispatch) => {
+        dispatch(toggleIsFetching(true))
+        debugger
+        try {
+            let response = await filterApi.saveFilters(company)
+            console.log('saveFilters', response)
+            debugger
+            if(response.status === 404) {
+                dispatch(toast.error('Ничего не найдено по пользователю'))
+            }
+            if(response === 200) {
+                dispatch(toast.success('Фильтры успешно сохранены'))
+            }
+            dispatch(toggleIsFetching(false))
+        }
+        catch (error) {
+            // console.log('getFilters error', error.toJSON())
+            // window.alert('getFilters error')
             dispatch(toggleIsFetching(false))
         }
     }

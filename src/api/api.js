@@ -17,13 +17,6 @@ const getFormData = (mass, auth) => { //Если нужен Bearer token, то a
     return formdata;
 }
 
-const getHeaders = () => {
-    const accessToken = 'Bearer  ' + localStorage.getItem('accessToken')
-    let myHeaders = new Headers();
-    myHeaders.append("Authorization", accessToken);
-    return myHeaders
-}
-
 export const filterApi = {
     fillInn(inn) { //Заполнение полей по инн
         let data = getFormData([{name: 'inn', value: inn}])
@@ -33,6 +26,33 @@ export const filterApi = {
     fillOgrn(ogrn) { //Заполнение полей по огрн
         let data = getFormData([{name: 'ogrn', value: ogrn}])
         return axios.post(baseUrl + `api/autofill_ogrn`, data)
+            .then(response => response.data)
+    },
+    getFilters() { //Фильтры по пользователю
+        let data = getFormData([])
+        const accessToken = 'Bearer ' + localStorage.getItem('accessToken')
+        return axios.get(baseUrl + `api/save`,
+            {
+                headers: {
+                    'Authorization': `${accessToken}`
+                },
+                data
+            })
+            .then(response => response.data)
+    },
+    saveFilters(company) { //Фильтры по пользователю
+
+        let data = getFormData([{name: 'company', value: company}])
+        const accessToken = 'Bearer ' + localStorage.getItem('accessToken')
+        return axios.post(baseUrl + `api/save`, data,
+
+            {
+                headers: {
+                    'Authorization': `${accessToken}`
+                },
+            }
+
+            )
             .then(response => response.data)
     },
 }
