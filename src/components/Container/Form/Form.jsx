@@ -12,8 +12,8 @@ const Form = (props) => {
     for (let i = 10; i < 36; i++) {
         children.push(<Option value={i.toString(36) + i} key={i.toString(36) + i}>{i.toString(36) + i}</Option>);
     }
-    function onSearch(val) {
-        console.log('search:', val);
+    const handleChange = (e) => {
+        //Приходит просто строка
     }
 
     return (
@@ -84,7 +84,6 @@ const Form = (props) => {
                                             option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                                         }
                                         size={'default'}
-                                        onSearch={onSearch}
                                         style={{ width: '100%' }}>
                                     <Option value="jack">Люся</Option>
                                     <Option value="lucy">Том</Option>
@@ -113,7 +112,6 @@ const Form = (props) => {
                                             option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                                         }
                                         size={'default'}
-                                        onSearch={onSearch}
                                         style={{ width: '100%' }}>
                                     {children}
                                 </Select>
@@ -135,12 +133,12 @@ const Form = (props) => {
                             <div className={s.listInput}>
                                 <Select placeholder="Форма организации"
                                         showSearch
+                                        onChange={handleChange}
                                         optionFilterProp="children"
                                         filterOption={(input, option) =>
                                             option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                                         }
                                         size={'default'}
-                                        onSearch={onSearch}
                                         style={{ width: '100%' }}>
                                     {children}
                                 </Select>

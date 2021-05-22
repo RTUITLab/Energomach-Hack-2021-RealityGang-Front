@@ -47,8 +47,8 @@ export const login = (username, password) => { //Логин
             dispatch(toggleIsFetching(false))
         }
         catch (error) {
-            console.log('Register error', error.toJSON())
-            window.alert('Register error')
+            console.log('login error', error.toJSON())
+            window.alert('login error')
             dispatch(toggleIsFetching(false))
         }
     }
