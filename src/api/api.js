@@ -41,8 +41,8 @@ export const filterApi = {
             .then(response => response.data)
     },
     saveFilters(company) { //Фильтры по пользователю
-
-        let data = getFormData([{name: 'company', value: company}])
+        let companyData = JSON.stringify(company)
+        let data = getFormData([{name: 'company', value: companyData}])
         const accessToken = 'Bearer ' + localStorage.getItem('accessToken')
         return axios.post(baseUrl + `api/save`, data,
 

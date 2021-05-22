@@ -31,7 +31,7 @@ const App = () => {
                 <Navbar />
                 <Switch>
                     <Route exact path='/login' render={ () => <LoginContainer />} />
-                    <Route exact path='/register' render={ () => <RegisterContainer />} />
+                    {/*<Route exact path='/register' render={ () => <RegisterContainer />} />*/}
                     <Container />
                 </Switch>
             </div>

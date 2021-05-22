@@ -211,9 +211,12 @@ const Form = (props) => {
                     </div>
 
                     <div className={s.buttons}>
-                        <button onClick={props.handleSaveFilters} className={s.saveBtn}>
-                            Сохранить данные о компании
-                        </button>
+                        {
+                            props.isAuth &&
+                            <button onClick={props.handleSaveFilters} className={s.saveBtn}>
+                                Сохранить данные о компании
+                            </button>
+                        }
                         <button className={s.submitBtn}>
                             Подобрать меры поддержки
                         </button>

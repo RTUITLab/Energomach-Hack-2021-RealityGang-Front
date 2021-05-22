@@ -9,6 +9,7 @@ const FormContainer = (props) => {
     const dispatch = useDispatch()
 
     const filters = useSelector((state) => state.filter.filters)
+    const isAuth = useSelector((state) => state.auth.isAuth)
 
     const [inn, setInn] = useState('7735010706')
     const [ogrn, setOgrn] = useState('')
@@ -62,6 +63,8 @@ const FormContainer = (props) => {
         dispatch(saveFilters(object))
     }
 
+    //todo - сохранение не работает с бэком
+
     const animations = {
         hidden: {
             opacity: 0,
@@ -82,7 +85,7 @@ const FormContainer = (props) => {
                   handleFindOgrn={handleFindOgrn}
                   ogrn={ogrn} setOgrn={setOgrn} form={form} okved={okved} region={region} osn_tass={osn_tass} otr={otr}
                   attrs={attrs} setOkved={setOkved} setAttrs={setAttrs} setOsnTass={setOsnTass} setDopTass={setDopTass} setRegion={setRegion}
-                  setForm={setForm} setOtr={setOtr} handleSaveFilters={handleSaveFilters}
+                  setForm={setForm} setOtr={setOtr} handleSaveFilters={handleSaveFilters} isAuth={isAuth}
             />
         </motion.div>
     )
