@@ -1,0 +1,52 @@
+@import "./src/common/style";
+
+.subsidy {
+
+}
+
+.topContainer {
+    padding: 60px 0 55px;
+    background-color: rgba(159, 111, 90, 0.2);
+}
+
+.top {
+    @include flexible();
+    justify-content: space-between;
+}
+
+.info {
+
+}
+
+.name {
+    margin: 0;
+    font-size: 16px;
+    color: $primary-color-text;
+}
+
+.title {
+    margin: 0;
+    color: $primary-color-text;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.notify {
+    opacity: 0.3;
+    font-size: 16px;
+    color: $primary-color-text;
+    line-height: 1.5;
+    font-weight: bold;
+    text-align: right;
+}
+
+.content {
+    background-color: #ececec;
+    padding: 30px 0 70px;
+}
+
+.list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 27px;
+}

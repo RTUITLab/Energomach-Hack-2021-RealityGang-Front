@@ -65,3 +65,13 @@ export const authApi = {
     },
 
 }
+export const subsidyApi = {
+
+    getSubsidyList(company) {
+        let data = getFormData([{name: 'okved', value: company.okved}, {name: 'osn_tass', value: company.osn_tass}, {name: 'dop_tass', value: company.dop_tass},
+            {name: 'attrs', value: company.attrs}, {name: 'otr', value: company.otr}, {name: 'region', value: company.region},
+            {name: 'forma', value: company.forma}, {name: 'inn', value: company.inn}, {name: 'ogrn', value: company.ogrn}, {name: 'kbk', value: ''}])
+        return axios.post(baseUrl + `api/predict`, data)
+    },
+
+}

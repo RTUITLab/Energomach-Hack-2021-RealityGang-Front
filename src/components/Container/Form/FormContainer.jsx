@@ -3,10 +3,13 @@ import {motion} from 'framer-motion'
 import Form from './Form'
 import {fillInn, fillOgrn, getFilters, saveFilters} from '../../../redux/filter-reducer'
 import {useDispatch, useSelector} from 'react-redux'
+import {useHistory} from 'react-router-dom'
+import {getSubsidyList} from '../../../redux/subsidy-reducer'
 
 const FormContainer = (props) => {
 
     const dispatch = useDispatch()
+    const history = useHistory()
 
     const filters = useSelector((state) => state.filter.filters)
     const isAuth = useSelector((state) => state.auth.isAuth)
@@ -63,6 +66,22 @@ const FormContainer = (props) => {
         dispatch(saveFilters(object))
     }
 
+    const handleSubmit = () => {
+        let object = {
+            inn: inn,
+            ogrn: ogrn,
+            okved: okved,
+            attrs: attrs,
+            osn_tass: osn_tass,
+            dop_tass: dop_tass,
+            otr: otr,
+            region: region,
+            form: form,
+        }
+        dispatch(getSubsidyList(object))
+        // history.push('/subsidy_list')
+    }
+
     const animations = {
         hidden: {
             opacity: 0,
@@ -83,7 +102,7 @@ const FormContainer = (props) => {
                   handleFindOgrn={handleFindOgrn}
                   ogrn={ogrn} setOgrn={setOgrn} form={form} okved={okved} region={region} osn_tass={osn_tass} otr={otr}
                   attrs={attrs} setOkved={setOkved} setAttrs={setAttrs} setOsnTass={setOsnTass} setDopTass={setDopTass} setRegion={setRegion}
-                  setForm={setForm} setOtr={setOtr} handleSaveFilters={handleSaveFilters} isAuth={isAuth}
+                  setForm={setForm} setOtr={setOtr} handleSaveFilters={handleSaveFilters} isAuth={isAuth} handleSubmit={handleSubmit}
             />
         </motion.div>
     )

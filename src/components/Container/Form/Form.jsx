@@ -218,7 +218,7 @@ const Form = (props) => {
                                 Сохранить данные о компании
                             </button>
                         }
-                        <button className={s.submitBtn}>
+                        <button onClick={props.handleSubmit} className={s.submitBtn}>
                             Подобрать меры поддержки
                         </button>
                     </div>

@@ -1,9 +1,8 @@
 import {filterApi} from "../api/api";
 import {toast} from "react-toastify";
+import {toggleIsFetching} from './auth-reducer'
 
-const SET_IS_FETCH = 'SET_IS_FETCH'
 const SET_FILTERS = 'SET_FILTERS'
-
 
 let initialState = {
     isFetch: false,
@@ -12,11 +11,6 @@ let initialState = {
 
 const filterReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SET_IS_FETCH:
-            return {
-                ...state,
-                isFetch: action.isFetch
-            }
         case SET_FILTERS:
             return {
                 ...state,
@@ -28,7 +22,6 @@ const filterReducer = (state = initialState, action) => {
     }
 }
 
-export const toggleIsFetching = (isFetch) => ({type: SET_IS_FETCH, isFetch})
 export const setFilters = (filters) => ({type: SET_FILTERS, filters})
 
 export const fillInn = (inn) => { //Информация по ИНН
