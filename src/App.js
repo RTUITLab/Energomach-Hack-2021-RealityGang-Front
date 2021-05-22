@@ -4,6 +4,7 @@ import {Route, Switch} from "react-router-dom";
 import Container from "./components/Container/Container";
 import LoginContainer from "./components/Login/LoginContainer";
 import Navbar from './components/Navbar/Navbar'
+import RegisterContainer from './components/Register/RegisterContainer'
 
 const App = () => {
     return (
@@ -12,6 +13,7 @@ const App = () => {
             <div className='container'>
                 <Switch>
                     <Route exact path='/login' render={ () => <LoginContainer />} />
+                    <Route exact path='/register' render={ () => <RegisterContainer />} />
                     <Container />
                 </Switch>
             </div>

@@ -36,7 +36,7 @@ export const toggleIsFetching = (isFetch) => ({type: SET_IS_FETCH, isFetch})
 export const setIsAuth = (isAuth) => ({type: SET_IS_AUTH, isAuth})
 export const setInitialize = (isInitialize) => ({type: SET_INITIALIZE, isInitialize})
 
-export const login = (username, password, setSubmitting) => { //Логин
+export const login = (username, password) => { //Логин
     return async (dispatch) => {
         dispatch(toggleIsFetching(true))
         try {
@@ -47,9 +47,8 @@ export const login = (username, password, setSubmitting) => { //Логин
             dispatch(toggleIsFetching(false))
         }
         catch (error) {
-            console.log('Login error', error.toJSON())
-            window.alert('Login error')
-            setSubmitting(false)
+            console.log('Register error', error.toJSON())
+            window.alert('Register error')
             dispatch(toggleIsFetching(false))
         }
     }

@@ -47,6 +47,11 @@
     color: $primary-color-text;
     background-color: rgba(159, 111, 90, 0.08);
     border-radius: 3px;
+
+    &:focus {
+        box-shadow: 0 0 3px 0 #f8b294;
+        border: solid 1px #9f6f5a;
+    }
 }
 
 $navbar-bg-color: #151515;
