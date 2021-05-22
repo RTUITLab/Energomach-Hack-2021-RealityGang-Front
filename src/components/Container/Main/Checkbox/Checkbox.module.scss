@@ -2,7 +2,6 @@
 
 .checkbox {
     margin-bottom: 30px;
-    max-width: 385px;
     @include flexible();
 
     & img {
@@ -12,6 +11,8 @@
 }
 
 .text {
+    max-width: 385px;
+    @include poppins();
     font-size: 16px;
     color: $primary-color-text;
     line-height: 1.63;

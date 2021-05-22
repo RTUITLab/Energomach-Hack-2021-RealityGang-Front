@@ -4,6 +4,7 @@
     position: relative;
     @include flexible();
     justify-content: space-between;
+    margin-top: 7vh;
 }
 
 .content {
@@ -43,14 +44,22 @@
 }
 
 .loginBtn {
+    @include poppins();
     @include primary-btn();
     padding: 15px 22px;
     margin-right: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.43;
 }
 
 .transparentBtn {
+    @include poppins();
+    font-size: 14px;
+    font-weight: 500;
     @include transparent-btn();
     padding: 15px 22px;
+    line-height: 1.43;
 }
 
 .imgContainer {

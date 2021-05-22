@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@font-face {
+    font-family: "Helvetica";
+    src: url("./fonts/HelveticaRegular.eot");
+    src: url("./fonts/HelveticaRegular.eot?#iefix") format("embedded-opentype"),
+    url("./fonts/HelveticaRegular.woff") format("woff"),
+    url("./fonts/HelveticaRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Helvetica";
+    src: url("./fonts/HelveticaMedium.eot");
+    src: url("./fonts/HelveticaMedium.eot?#iefix") format("embedded-opentype"),
+    url("./fonts/HelveticaMedium.woff") format("woff"),
+    url("./fonts/HelveticaMedium.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Helvetica";
+    src: url("./fonts/HelveticaBold.eot");
+    src: url("./fonts/HelveticaBold.eot?#iefix") format("embedded-opentype"),
+    url("./fonts/HelveticaBold.woff") format("woff"),
+    url("./fonts/HelveticaBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: bold;
+}
