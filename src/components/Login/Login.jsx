@@ -17,16 +17,16 @@ const Login = (props) => {
                 <div className={s.inputs}>
                     <div className={s.inputContainer}>
                         <input value={props.email}
-                               // onKeyUp={props.handleKeyUp}
-                               // onChange={(e) => props.setEmail(e.target.value)}
+                               onKeyUp={props.handleKeyUp}
+                               onChange={(e) => props.setEmail(e.target.value)}
                                placeholder={'E-mail'}
                                className={cl(s.input)} id={'login'} type='text' />
                         <label className={s.imgLabel} htmlFor='login'><img src={message} alt='message' /></label>
                     </div>
                     <div className={s.inputContainer}>
                         <input value={props.password}
-                               // onKeyUp={props.handleKeyUp}
-                               // onChange={(e) => props.setPassword(e.target.value)}
+                               onKeyUp={props.handleKeyUp}
+                               onChange={(e) => props.setPassword(e.target.value)}
                                placeholder={'Пароль'}
                                className={cl( s.input)} id={'password'} type='password' />
                         <label className={s.imgLabel} htmlFor='password'><img src={padlock} alt='padlock' /></label>
