@@ -3,4 +3,36 @@
     align-items: center;
 }
 
+@mixin primary-btn() {
+    display: block;
+    background-color: #9f6f5a;
+    line-height: 1.43;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+    border-radius: 3px;
+    transition: all 0.4s ease;
+
+    &:hover {
+        background-color: #B48774;
+    }
+}
+
+@mixin transparent-btn() {
+    display: block;
+    background-color: transparent;
+    line-height: 1.43;
+    color: #9f6f5a;
+    font-weight: 500;
+    font-size: 14px;
+    border-radius: 3px;
+    border: solid 1px #9f6f5a;
+    transition: all 0.4s ease;
+
+    &:hover {
+        background-color: #EDEAE8;
+    }
+}
+
 $navbar-bg-color: #151515;
+$primary-color-text: #414744;

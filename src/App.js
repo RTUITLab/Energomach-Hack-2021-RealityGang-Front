@@ -1,4 +1,5 @@
 import React from 'react'
+import './App.scss'
 import {Route, Switch} from "react-router-dom";
 import Container from "./components/Container/Container";
 import LoginContainer from "./components/Login/LoginContainer";

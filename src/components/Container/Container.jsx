@@ -1,10 +1,14 @@
 import React from "react";
+import {Route, Switch} from 'react-router-dom'
+import Main from './Main/Main'
 
 const Container = (props) => {
     return (
-        <div>
-
-        </div>
+        <>
+            <Switch>
+                <Route exact path='/' render={ () => <Main />} />
+            </Switch>
+        </>
     )
 }
 
