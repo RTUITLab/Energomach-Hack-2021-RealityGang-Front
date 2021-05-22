@@ -12,6 +12,7 @@ const FormContainer = (props) => {
 
     const [inn, setInn] = useState('7735010706')
     const [ogrn, setOgrn] = useState('')
+
     const [okved, setOkved] = useState([])
     const [attrs, setAttrs] = useState([])
     const [osn_tass, setOsnTass] = useState('')
@@ -20,9 +21,13 @@ const FormContainer = (props) => {
     const [region, setRegion] = useState('')
     const [form, setForm] = useState('')
 
+    // todo  - Сохранение + загрузка данных
     useEffect(() => {
         if(filters.ogrn) {
             setOgrn(filters.ogrn)
+        }
+        if(filters.inn) {
+            setInn(filters.inn)
         }
         setDopTass(filters.dop_tass)
         setForm(filters.form)
@@ -59,7 +64,8 @@ const FormContainer = (props) => {
             <Form inn={inn} handleFindInn={handleFindInn} dop_tass={dop_tass} setInn={setInn}
                   handleFindOgrn={handleFindOgrn}
                   ogrn={ogrn} setOgrn={setOgrn} form={form} okved={okved} region={region} osn_tass={osn_tass} otr={otr}
-                  attrs={attrs}
+                  attrs={attrs} setOkved={setOkved} setAttrs={setAttrs} setOsnTass={setOsnTass} setDopTass={setDopTass} setRegion={setRegion}
+                  setForm={setForm} setOtr={setOtr}
             />
         </motion.div>
     )

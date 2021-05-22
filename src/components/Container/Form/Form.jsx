@@ -12,10 +12,6 @@ const Form = (props) => {
     for (let i = 10; i < 36; i++) {
         children.push(<Option value={i.toString(36) + i} key={i.toString(36) + i}>{i.toString(36) + i}</Option>);
     }
-    const handleChange = (e) => {
-        //Приходит просто строка
-    }
-
     return (
         <div className={s.form}>
             <div className={s.topContainer}>
@@ -63,7 +59,7 @@ const Form = (props) => {
                                     mode="tags"
                                     size='default'
                                     value={props.okved}
-                                    // onChange={(e) => props.setOgrn(e)}
+                                    onChange={(e) => props.setOkved(e)}
                                     placeholder="ОКВЭД"
                                     style={{ width: '100%' }}
                                 >
@@ -76,6 +72,7 @@ const Form = (props) => {
                                     mode="tags"
                                     size='default'
                                     value={props.attrs}
+                                    onChange={(e) => props.setAttrs(e)}
                                     placeholder="Атрибуты предприятия"
                                     // dropdownClassName={s.drop}
                                     style={{ width: '100%' }}
@@ -88,6 +85,7 @@ const Form = (props) => {
                                 <Select placeholder="Основной ТАСС"
                                         showSearch
                                         value={props.osn_tass}
+                                        onChange={(e) => props.setOsnTass(e)}
                                         optionFilterProp="children"
                                         filterOption={(input, option) =>
                                             option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
@@ -106,6 +104,7 @@ const Form = (props) => {
                                     mode="tags"
                                     size='default'
                                     value={props.dop_tass}
+                                    onChange={(e) => props.setDopTass(e)}
                                     placeholder="Дополнительный ТАСС"
                                     // dropdownClassName={s.drop}
                                     style={{ width: '100%' }}
@@ -118,6 +117,7 @@ const Form = (props) => {
                                 <Select placeholder="Регион"
                                         showSearch
                                         value={props.region}
+                                        onChange={(e) => props.setRegion(e)}
                                         optionFilterProp="children"
                                         filterOption={(input, option) =>
                                             option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
@@ -133,6 +133,7 @@ const Form = (props) => {
                                     mode="tags"
                                     size='default'
                                     value={props.otr}
+                                    onChange={(e) => props.setOtr(e)}
                                     placeholder="Отрасль"
                                     // dropdownClassName={s.drop}
                                     style={{ width: '100%' }}
@@ -146,7 +147,7 @@ const Form = (props) => {
                                 <Select placeholder="Форма организации"
                                         showSearch
                                         value={props.form}
-                                        onChange={handleChange}
+                                        onChange={(e) => props.setForm(e)}
                                         optionFilterProp="children"
                                         filterOption={(input, option) =>
                                             option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
