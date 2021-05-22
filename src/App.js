@@ -1,16 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-import Switch from "react-router-dom";
-import Route from "react-router-dom";
+import React from 'react'
+import {Route, Switch} from "react-router-dom";
+import Container from "./components/Container/Container";
+import LoginContainer from "./components/Login/LoginContainer";
+import Navbar from './components/Navbar/Navbar'
 
 const App = () => {
     return (
-        <>
-            <Switch>
-                <Route exact path='/login' render={ () => <LoginContainer />} />
-                <Container />
-            </Switch>
-        </>
+        <div className='outer'>
+            <Navbar />
+            <div className='container'>
+                <Switch>
+                    <Route exact path='/login' render={ () => <LoginContainer />} />
+                    <Container />
+                </Switch>
+            </div>
+        </div>
     );
 }
 
