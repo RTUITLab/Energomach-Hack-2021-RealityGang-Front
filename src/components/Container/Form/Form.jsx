@@ -62,7 +62,7 @@ const Form = (props) => {
                                 <Select
                                     mode="tags"
                                     size='default'
-                                    // value={props.ogrn}
+                                    value={props.okved}
                                     // onChange={(e) => props.setOgrn(e)}
                                     placeholder="ОКВЭД"
                                     style={{ width: '100%' }}
@@ -75,6 +75,7 @@ const Form = (props) => {
                                 <Select
                                     mode="tags"
                                     size='default'
+                                    value={props.attrs}
                                     placeholder="Атрибуты предприятия"
                                     // dropdownClassName={s.drop}
                                     style={{ width: '100%' }}
@@ -86,6 +87,7 @@ const Form = (props) => {
                             <div className={s.listInput}>
                                 <Select placeholder="Основной ТАСС"
                                         showSearch
+                                        value={props.osn_tass}
                                         optionFilterProp="children"
                                         filterOption={(input, option) =>
                                             option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
@@ -103,6 +105,7 @@ const Form = (props) => {
                                 <Select
                                     mode="tags"
                                     size='default'
+                                    value={props.dop_tass}
                                     placeholder="Дополнительный ТАСС"
                                     // dropdownClassName={s.drop}
                                     style={{ width: '100%' }}
@@ -114,6 +117,7 @@ const Form = (props) => {
                             <div className={s.listInput}>
                                 <Select placeholder="Регион"
                                         showSearch
+                                        value={props.region}
                                         optionFilterProp="children"
                                         filterOption={(input, option) =>
                                             option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
@@ -128,6 +132,7 @@ const Form = (props) => {
                                 <Select
                                     mode="tags"
                                     size='default'
+                                    value={props.otr}
                                     placeholder="Отрасль"
                                     // dropdownClassName={s.drop}
                                     style={{ width: '100%' }}
@@ -140,6 +145,7 @@ const Form = (props) => {
                             <div className={s.listInput}>
                                 <Select placeholder="Форма организации"
                                         showSearch
+                                        value={props.form}
                                         onChange={handleChange}
                                         optionFilterProp="children"
                                         filterOption={(input, option) =>
