@@ -1,15 +1,19 @@
 @import "./src/common/style";
 
 .navbar {
+    display: block;
     width: 100%;
     background-color: $navbar-bg-color;
     padding: 24px 0;
 }
 
 .container {
-    @include flexible();
     width: 1140px;
     margin: 0 auto;
+}
+
+.images {
+    @include flexible();
 
     & img {
         display: block;
