@@ -64,5 +64,24 @@
     display: block;
 }
 
+@mixin navbarBtn() {
+    outline: none;
+    display: block;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: white;
+    cursor: pointer;
+    color: black;
+    height: 37px;
+    text-align: center;
+    transition: all 0.4s ease;
+
+    &:hover {
+        background-color: #dfdfdf;
+    }
+}
+
 $navbar-bg-color: #151515;
 $primary-color-text: #414744;

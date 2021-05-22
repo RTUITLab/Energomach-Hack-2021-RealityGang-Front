@@ -63,8 +63,6 @@ const FormContainer = (props) => {
         dispatch(saveFilters(object))
     }
 
-    //todo - сохранение не работает с бэком
-
     const animations = {
         hidden: {
             opacity: 0,

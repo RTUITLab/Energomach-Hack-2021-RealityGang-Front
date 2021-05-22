@@ -54,7 +54,7 @@ export const login = (username, password) => { //Логин
     }
 }
 
-export const initializing = () => { //Выход
+export const initializing = () => { //Инициализация
     return (dispatch) => {
         let token = localStorage.getItem('accessToken');
         if(token === null) {

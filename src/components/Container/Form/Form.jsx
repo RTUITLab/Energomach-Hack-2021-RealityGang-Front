@@ -26,11 +26,11 @@ const Form = (props) => {
                 <div className={'container'}>
                     <div className={s.top}>
                         <div className={s.info}>
-                            <h2 className={s.name}>Предоставление субсидий, займы, лизинг</h2>
+                            <h2 className={s.name}>Предоставление субсидий, займов, лизинга</h2>
                             <h1 className={s.title}>Навигатор мер поддержки</h1>
                             <div className={s.description}>
                                 Цифровой помощник, позволяющий идентифицировать пользователя и на основе имеющейся в
-                                системе информации предлагать наиболее актуальные меры поддержки, проводить их
+                                системе информации предлагать наиболее актуальные меры поддержки, а так же проводить их
                                 сравнительный анализ.
                             </div>
                         </div>
@@ -52,6 +52,7 @@ const Form = (props) => {
                     <div className={s.filterContainer}>
                         <div className={s.textInputs}>
                             <div className={s.textInputContainer}>
+                                {/*todo поменять кнопки*/}
                                 <label htmlFor='inn'><img onClick={props.handleFindInn} src={search} alt='loup' /></label>
                                 <input maxLength={15} id={'inn'} value={props.inn} onChange={(e) => props.setInn(e.target.value)} placeholder='Введите ИНН' type='text' className={s.textInput} />
                             </div>

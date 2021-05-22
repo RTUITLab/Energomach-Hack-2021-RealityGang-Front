@@ -35,10 +35,10 @@ const Login = (props) => {
 
                 <button onClick={props.handleSubmit} type={'submit'} className={cl(s.loginBtn)}>Войти</button>
 
-                <div className={s.footer}>
-                    <span>Ещё не зарегистрированы?</span>
-                    <NavLink to={'/register'}>Создать аккаунт</NavLink>
-                </div>
+                {/*<div className={s.footer}>*/}
+                {/*    <span>Ещё не зарегистрированы?</span>*/}
+                {/*    <NavLink to={'/register'}>Создать аккаунт</NavLink>*/}
+                {/*</div>*/}
             </div>
 
             <div className={s.imgContainer}>
