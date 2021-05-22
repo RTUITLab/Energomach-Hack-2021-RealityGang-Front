@@ -47,8 +47,14 @@ const Form = (props) => {
                 <div className={s.content}>
                     <div className={s.filterContainer}>
                         <div className={s.textInputs}>
-                            <input placeholder='Введите ИНН' type='text' className={s.textInput} />
-                            <input placeholder='Введите ОГРН' type='text' className={s.textInput} />
+                            <div className={s.textInputContainer}>
+                                <label htmlFor='inn'><img onClick={props.handleFindInn} src={search} alt='loup' /></label>
+                                <input maxLength={15} id={'inn'} value={props.inn} onChange={(e) => props.setInn(e.target.value)} placeholder='Введите ИНН' type='text' className={s.textInput} />
+                            </div>
+                            <div className={s.textInputContainer}>
+                                <label htmlFor='ogrn'><img onClick={props.handleFindOgrn} src={search} alt='loup' /></label>
+                                <input maxLength={15} id={'ogrn'} value={props.ogrn} onChange={(e) => props.setOgrn(e.target.value)} placeholder='Введите ОГРН' type='text' className={s.textInput} />
+                            </div>
                         </div>
                         <div className={s.listInputs}>
 
@@ -56,8 +62,9 @@ const Form = (props) => {
                                 <Select
                                     mode="tags"
                                     size='default'
+                                    // value={props.ogrn}
+                                    // onChange={(e) => props.setOgrn(e)}
                                     placeholder="ОКВЭД"
-                                    // dropdownClassName={s.drop}
                                     style={{ width: '100%' }}
                                 >
                                     {children}

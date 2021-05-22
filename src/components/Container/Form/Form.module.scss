@@ -110,6 +110,24 @@
     margin-right: 92px;
 }
 
+.textInputContainer {
+    position: relative;
+
+    & label {
+        position: absolute;
+        cursor: pointer;
+        @include flexible();
+        top: 0;
+        bottom: 0;
+        right: 20px;
+        margin: auto;
+
+        & img {
+            width: 20px;
+        }
+    }
+}
+
 .textInput {
     @include formInput();
     width: 319px;
@@ -118,6 +136,7 @@
 }
 
 .listInputs {
+    align-items: flex-start;
     display: grid;
     grid-row-gap: 24px;
     grid-column-gap: 91px;
@@ -131,7 +150,7 @@
 
 .arrow {
     position: absolute;
-    right: 22px;
+    right: 17px;
     top: 0;
     bottom: 0;
     pointer-events: none;

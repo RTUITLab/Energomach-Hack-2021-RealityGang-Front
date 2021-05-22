@@ -1,4 +1,5 @@
 import * as axios from "axios";
+import {fillInn} from '../redux/filter-reducer'
 
 let baseUrl = process.env.REACT_APP_PRODUCTION_URL
 
@@ -23,9 +24,19 @@ const getHeaders = () => {
     return myHeaders
 }
 
-export const newsApi = {
-
+export const filterApi = {
+    fillInn(inn) { //Заполнение полей по инн
+        let data = getFormData([{name: 'inn', value: inn}])
+        return axios.post(baseUrl + `api/autofill_inn`, data)
+            .then(response => response.data)
+    },
+    fillOgrn(ogrn) { //Заполнение полей по огрн
+        let data = getFormData([{name: 'ogrn', value: ogrn}])
+        return axios.post(baseUrl + `api/autofill_ogrn`, data)
+            .then(response => response.data)
+    },
 }
+
 export const authApi = {
 
     login(username, password) { //Логин
