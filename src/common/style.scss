@@ -4,6 +4,9 @@
 }
 
 @mixin primary-btn() {
+    cursor: pointer;
+    outline: none;
+    border: none;
     display: block;
     background-color: #9f6f5a;
     color: white;
@@ -16,6 +19,8 @@
 }
 
 @mixin transparent-btn() {
+    cursor: pointer;
+    outline: none;
     display: block;
     background-color: transparent;
     color: #9f6f5a;
@@ -30,6 +35,18 @@
 
 @mixin poppins() {
     font-family: 'Poppins', sans-serif;
+}
+
+@mixin input() {
+    border: none;
+    outline: none;
+    display: block;
+    position: relative;
+    padding-left: 56px;
+    height: 50px;
+    color: $primary-color-text;
+    background-color: rgba(159, 111, 90, 0.08);
+    border-radius: 3px;
 }
 
 $navbar-bg-color: #151515;

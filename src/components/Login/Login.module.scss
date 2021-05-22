@@ -1,0 +1,81 @@
+@import './src/common/style';
+
+.loginContainer {
+    @include flexible();
+    justify-content: space-between;
+    margin-top: 10vh;
+}
+
+.login {
+
+}
+
+.name {
+    color: $primary-color-text;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.title {
+    color: $primary-color-text;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.inputs {
+    margin-bottom: 40px;
+}
+
+.inputContainer {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.input {
+    width: 340px;
+    @include input();
+}
+
+.imgLabel {
+    @include flexible();
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    bottom: 0;
+    left: 20px;
+    margin: auto;
+}
+
+.loginBtn {
+    @include primary-btn();
+    font-size: 14px;
+    line-height: 1.43;
+    margin-bottom: 40px;
+    padding: 15px 0;
+    width: 130px;
+}
+
+.footer {
+    color: $primary-color-text;
+    font-size: 14px;
+
+    & span {
+        opacity: 0.5;
+    }
+
+    & a {
+        color: $primary-color-text;
+        text-decoration: underline;
+        margin-left: 6px;
+    }
+}
+
+.imgContainer {
+    width: 526px;
+}
+
+.img {
+    width: inherit;
+}

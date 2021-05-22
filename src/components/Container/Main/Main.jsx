@@ -2,9 +2,16 @@ import React from 'react'
 import s from './Main.module.scss'
 import main from './../../../assets/images/main.svg'
 import Checkbox from './Checkbox/Checkbox'
-import {NavLink} from 'react-router-dom'
+import {NavLink, Redirect} from 'react-router-dom'
+import {useSelector} from 'react-redux'
 
 const Main = (props) => {
+
+    const isAuth = useSelector(state => state.auth.isAuth)
+
+    if(isAuth) {
+        return <Redirect to='/form' />
+    }
     return (
         <div className={s.main}>
             <div className={s.content}>
