@@ -48,13 +48,15 @@ const RegisterContainer = (props) => {
     }
 
     return (
-        <motion.div variants={animations} initial="hidden" animate="visible"
-                    transition={{ duration: 1 }}
-        >
-            <Register handleKeyUp={handleKeyUp} checkIsPasswordMatch={checkIsPasswordMatch} passwordConfirm={passwordConfirm}
-                      setPasswordConfirm={setPasswordConfirm}
-                      handleSubmit={handleSubmit} email={email} password={password} setPassword={setPassword} setEmail={setEmail} />
-        </motion.div>
+        <div className={'container'}>
+            <motion.div variants={animations} initial="hidden" animate="visible"
+                        transition={{ duration: 1 }}
+            >
+                <Register handleKeyUp={handleKeyUp} checkIsPasswordMatch={checkIsPasswordMatch} passwordConfirm={passwordConfirm}
+                          setPasswordConfirm={setPasswordConfirm}
+                          handleSubmit={handleSubmit} email={email} password={password} setPassword={setPassword} setEmail={setEmail} />
+            </motion.div>
+        </div>
     )
 }
 

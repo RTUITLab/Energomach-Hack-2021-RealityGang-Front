@@ -1,0 +1,157 @@
+@import "./src/common/style";
+
+.form {
+    padding-bottom: 100px;
+}
+
+.topContainer {
+    background-color: rgba(159, 111, 90, 0.2);
+    border-bottom-right-radius: 100px;
+}
+
+.top {
+    padding: 50px 0 100px;
+    @include flexible();
+    justify-content: space-between;
+}
+
+.info {
+
+}
+
+.name {
+    @include poppins();
+    font-size: 16px;
+    color: $primary-color-text;
+    margin-top: 0;
+    font-weight: 400;
+}
+
+.title {
+    @include poppins();
+    color: $primary-color-text;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.description {
+    @include poppins();
+    max-width: 514px;
+    font-size: 16px;
+    color: $primary-color-text;
+    line-height: 1.63;
+}
+
+.imgContainer {
+    width: 350px;
+    margin-right: 120px;
+}
+
+.img {
+    display: block;
+    width: inherit;
+}
+
+.searchInputContainer {
+    position: relative;
+    bottom: 36px;
+    margin-bottom: 8px;
+}
+
+.searchLabel {
+    position: absolute;
+    top: 0;
+    left: 35px;
+    bottom: 0;
+    margin: auto;
+    @include flexible();
+
+    & img {
+        display: block;
+        cursor: pointer;
+    }
+}
+
+.searchInput {
+    width: 1140px;
+    border: none;
+    outline: none;
+    height: 72px;
+    padding: 25px 94px;
+    border-radius: 3px;
+    box-shadow: 0 3px 8px 0 rgba(215, 215, 215, 0.5);
+
+    &::placeholder {
+        color: rgba(0, 0, 0, 0.2);
+    }
+}
+
+.content {
+
+}
+
+.content_title {
+    color: $primary-color-text;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.filterContainer {
+    @include flexible();
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.textInputs {
+    margin-right: 92px;
+}
+
+.textInput {
+    @include formInput();
+    width: 319px;
+    height: 50px;
+    margin-bottom: 24px;
+}
+
+.listInputs {
+    display: grid;
+    grid-row-gap: 24px;
+    grid-column-gap: 91px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.listInput {
+    position: relative;
+    width: 319px;
+}
+
+.arrow {
+    position: absolute;
+    right: 22px;
+    top: 0;
+    bottom: 0;
+    pointer-events: none;
+    margin: auto;
+    @include flexible();
+}
+
+.buttons {
+    @include flexible();
+    justify-content: space-between;
+}
+
+.saveBtn {
+    padding: 15px 0;
+    width: 230px;
+    @include transparent-btn();
+}
+
+.submitBtn {
+    padding: 15px 0;
+    width: 230px;
+    @include primary-btn();
+}

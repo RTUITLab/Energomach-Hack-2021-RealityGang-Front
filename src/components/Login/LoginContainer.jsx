@@ -41,11 +41,13 @@ const LoginContainer = (props) => {
     }
 
     return (
-        <motion.div variants={animations} initial="hidden" animate="visible"
-                    transition={{ duration: 1 }}
-        >
-            <Login handleKeyUp={handleKeyUp} handleSubmit={handleSubmit} email={email} password={password} setPassword={setPassword} setEmail={setEmail} />
-        </motion.div>
+        <div className={'container'}>
+            <motion.div variants={animations} initial="hidden" animate="visible"
+                        transition={{ duration: 1 }}
+            >
+                <Login handleKeyUp={handleKeyUp} handleSubmit={handleSubmit} email={email} password={password} setPassword={setPassword} setEmail={setEmail} />
+            </motion.div>
+        </div>
     )
 }
 

@@ -4,6 +4,7 @@ import main from './../../../assets/images/main.svg'
 import Checkbox from './Checkbox/Checkbox'
 import {NavLink, Redirect} from 'react-router-dom'
 import {useSelector} from 'react-redux'
+import {motion} from "framer-motion";
 
 const Main = (props) => {
 
@@ -12,32 +13,52 @@ const Main = (props) => {
     if(isAuth) {
         return <Redirect to='/form' />
     }
+
+    const animations = {
+        hidden: {
+            opacity: 0,
+            x:0,
+            y: 100,
+        },
+        visible: {
+            opacity: 1,
+            x:0,
+            y:0,
+        }
+    }
+
     return (
-        <div className={s.main}>
-            <div className={s.content}>
-                <h2 className={s.name}>Цифровой помощник ГИСП</h2>
-                <h1 className={s.title}>Навигатор мер поддержки</h1>
-                <div className={s.description}>
-                    Платформа для самостоятельного поиска программ государственной поддержки, которая доступна
-                    представителям промышленных предприятий
+        <div className={'container'}>
+            <motion.div variants={animations} initial="hidden" animate="visible"
+                        transition={{ duration: 1 }}
+            >
+                <div className={s.main}>
+                    <div className={s.content}>
+                        <h2 className={s.name}>Цифровой помощник ГИСП</h2>
+                        <h1 className={s.title}>Навигатор мер поддержки</h1>
+                        <div className={s.description}>
+                            Платформа для самостоятельного поиска программ государственной поддержки, которая доступна
+                            представителям промышленных предприятий
+                        </div>
+                        <div className={s.checkboxContainer}>
+                            <Checkbox text='Буллит с инфой про внедрение ml-решения в данную систему' />
+                            <Checkbox text='Буллит с инфой про удобные фильтры для поиска субсидий' />
+                            <Checkbox text='Буллит с инфой про что-то классное что внедрено в наше решение' />
+                        </div>
+                        <div className={s.buttons}>
+                            <NavLink to={'/login'} className={s.loginBtn}>
+                                Авторизация
+                            </NavLink>
+                            <NavLink to={'/form'} className={s.transparentBtn}>
+                                Войти как гость
+                            </NavLink>
+                        </div>
+                    </div>
+                    <div className={s.imgContainer}>
+                        <img className={s.img} src={main} alt='hackathon' />
+                    </div>
                 </div>
-                <div className={s.checkboxContainer}>
-                    <Checkbox text='Буллит с инфой про внедрение ml-решения в данную систему' />
-                    <Checkbox text='Буллит с инфой про удобные фильтры для поиска субсидий' />
-                    <Checkbox text='Буллит с инфой про что-то классное что внедрено в наше решение' />
-                </div>
-                <div className={s.buttons}>
-                    <NavLink to={'/login'} className={s.loginBtn}>
-                        Авторизация
-                    </NavLink>
-                    <NavLink to={'/form'} className={s.transparentBtn}>
-                        Войти как гость
-                    </NavLink>
-                </div>
-            </div>
-            <div className={s.imgContainer}>
-                <img className={s.img} src={main} alt='hackathon' />
-            </div>
+            </motion.div>
         </div>
     )
 }

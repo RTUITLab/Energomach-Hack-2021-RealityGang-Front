@@ -54,5 +54,13 @@
     }
 }
 
+@mixin formInput() {
+    outline: none;
+    border-radius: 3px;
+    border: solid 1px #aaaaaa;
+    padding: 0 15px;
+    display: block;
+}
+
 $navbar-bg-color: #151515;
 $primary-color-text: #414744;
