@@ -52,13 +52,12 @@ const Form = (props) => {
                     <div className={s.filterContainer}>
                         <div className={s.textInputs}>
                             <div className={s.textInputContainer}>
-                                {/*todo поменять кнопки*/}
-                                <label htmlFor='inn'><img onClick={props.handleFindInn} src={search} alt='loup' /></label>
                                 <input maxLength={15} id={'inn'} value={props.inn} onChange={(e) => props.setInn(e.target.value)} placeholder='Введите ИНН' type='text' className={s.textInput} />
+                                <button onClick={props.handleFindInn} className={s.fill}>Заполнить по ИНН</button>
                             </div>
                             <div className={s.textInputContainer}>
-                                <label htmlFor='ogrn'><img onClick={props.handleFindOgrn} src={search} alt='loup' /></label>
                                 <input maxLength={15} id={'ogrn'} value={props.ogrn} onChange={(e) => props.setOgrn(e.target.value)} placeholder='Введите ОГРН' type='text' className={s.textInput} />
+                                <button onClick={props.handleFindOgrn} className={s.fill}>Заполнить по ОГРН</button>
                             </div>
                         </div>
                         <div className={s.listInputs}>

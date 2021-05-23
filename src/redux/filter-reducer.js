@@ -90,11 +90,9 @@ export const getFilters = () => { //Получить фильтры
 export const saveFilters = (company) => { //Сохранить фильтры
     return async (dispatch) => {
         dispatch(toggleIsFetching(true))
-        debugger
         try {
             let response = await filterApi.saveFilters(company)
             console.log('saveFilters', response)
-            debugger
             if(response.status === 404) {
                 dispatch(toast.error('Ничего не найдено по пользователю'))
             }

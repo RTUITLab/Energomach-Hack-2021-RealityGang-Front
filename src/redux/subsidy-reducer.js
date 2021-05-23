@@ -29,9 +29,9 @@ export const getSubsidyList = (company) => {
         try {
             let response = await subsidyApi.getSubsidyList(company)
             console.log('getSubsidyList', response)
-            debugger
-            dispatch(setSubsidyList(response))
-            localStorage.setItem('accessToken', response.data.access)
+            if(response.status === 200) {
+                dispatch(setSubsidyList(response.data))
+            }
             dispatch(toggleIsFetching(false))
         }
         catch (error) {

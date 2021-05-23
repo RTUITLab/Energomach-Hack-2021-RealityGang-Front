@@ -2,7 +2,7 @@ import React from 'react'
 import s from './Navbar.module.scss'
 import logo from '../../assets/images/logo.png'
 import gisp from '../../assets/images/gisp_logo.png'
-import {NavLink} from 'react-router-dom'
+import {NavLink, useLocation} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import {logout} from '../../redux/auth-reducer'
 
@@ -10,6 +10,7 @@ const Navbar = (props) => {
 
     const dispatch = useDispatch()
     const isAuth = useSelector((state) => state.auth.isAuth)
+    const location = useLocation()
 
     return (
         <div className={s.navbar}>
