@@ -24,6 +24,14 @@ const Navbar = (props) => {
                         isAuth &&
                         <button onClick={() => (dispatch(logout()))} className={s.logoutBtn}>Выйти</button>
                     }
+                    {
+                        (location.pathname === '/subsidy_list' || location.pathname.includes('/subsidy/')) &&
+                        <NavLink to={'/compare'} className={s.compareBtn}>Перейти к сравнению</NavLink>
+                    }
+                    {
+                        location.pathname === '/compare' &&
+                        <NavLink className={s.homeBtn} to='/'>Гланый экран</NavLink>
+                    }
                 </div>
 
             </div>

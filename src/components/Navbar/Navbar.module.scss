@@ -36,3 +36,25 @@
     @include navbarBtn();
     width: 140px;
 }
+
+.homeBtn {
+    @include navbarBtn();
+    @include flexible();
+    width: 140px;
+    margin-left: 40px;
+    justify-content: center;
+    &:hover {
+        color: $primary-color-text;
+    }
+}
+
+.compareBtn {
+    @include navbarBtn();
+    @include flexible();
+    justify-content: center;
+    width: 191px;
+    margin-left: 40px;
+    &:hover {
+        color: $primary-color-text;
+    }
+}
