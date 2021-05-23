@@ -171,6 +171,7 @@
 }
 
 .submitBtn {
+    margin-left: auto;
     padding: 15px 0;
     width: 230px;
     @include primary-btn();
