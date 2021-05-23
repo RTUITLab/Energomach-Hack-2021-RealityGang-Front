@@ -3,8 +3,21 @@ import s from './SubsidyList.module.scss'
 import SubsidyListItem from './SubsidyListItem/SubsidyListItem'
 import {withRequestFetching} from '../../../hoc/withRequestFetching'
 import {compose} from 'redux'
+import {motion} from "framer-motion";
 
 const SubsidyList = (props) => {
+
+    const animationContainer = {
+        hidden: {opacity: 1, scale: 1},
+        visible: {
+            opacity: 1,
+            scale: 1,
+            transition: {
+                delayChildren: 0.1,
+                staggerChildren: 0.1
+            }
+        }
+    }
 
     return (
         <div className={s.subsidy}>
@@ -23,7 +36,12 @@ const SubsidyList = (props) => {
             </div>
             <div className={s.content}>
                 <div className='container'>
-                    <div className={s.list}>
+                    <motion.div className={s.list}
+                                variants={animationContainer}
+                                initial="hidden"
+                                animate="visible"
+                    >
+
                         {
                             props.subsidyList?.length > 0
                                 ?
@@ -38,7 +56,8 @@ const SubsidyList = (props) => {
                                     </div>
                                 </>
                         }
-                    </div>
+
+                    </motion.div>
                 </div>
             </div>
         </div>

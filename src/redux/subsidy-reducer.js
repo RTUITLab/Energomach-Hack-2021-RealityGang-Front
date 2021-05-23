@@ -5,12 +5,15 @@ const SET_SUBSIDY_LIST = 'SET_SUBSIDY_LIST'
 const SET_SUBSIDY_DATA = 'SET_SUBSIDY_DATA'
 const SET_SUBSIDY_DATA2 = 'SET_SUBSIDY_DATA2'
 const SET_SUBSIDY_DATA3 = 'SET_SUBSIDY_DATA3'
+const ADD_ITEM_TO_COMPARE = 'ADD_ITEM_TO_COMPARE'
+const DELETE_ITEM_FROM_COMPARE = 'DELETE_ITEM_FROM_COMPARE'
 
 let initialState = {
     subsidyList: [],
     subsidyData: [],
     subsidyData2: [],
     subsidyData3: [],
+    subsidyCompare: [],
 }
 
 const subsidyReducer = (state = initialState, action) => {
@@ -35,6 +38,20 @@ const subsidyReducer = (state = initialState, action) => {
                 ...state,
                 subsidyData3: action.subsidyData3
             }
+        case ADD_ITEM_TO_COMPARE:
+            return {
+                ...state,
+                subsidyCompare: [...state.subsidyCompare, action.itemData]
+            }
+        case DELETE_ITEM_FROM_COMPARE:
+
+            return {
+                ...state,
+                subsidyCompare: state.subsidyCompare.filter(com => {
+                    return com.ID !== action.id
+                    }
+                )
+            }
         default:
             return state
     }
@@ -44,7 +61,8 @@ export const setSubsidyList = (subsidyList) => ({type: SET_SUBSIDY_LIST, subsidy
 export const setSubsidy = (subsidyData) => ({type: SET_SUBSIDY_DATA, subsidyData})
 export const setSubsidy2 = (subsidyData2) => ({type: SET_SUBSIDY_DATA2, subsidyData2})
 export const setSubsidy3 = (subsidyData3) => ({type: SET_SUBSIDY_DATA3, subsidyData3})
-
+export const addItemToCompare = (itemData) => ({type: ADD_ITEM_TO_COMPARE, itemData})
+export const deleteItemFromCompare = (id) => ({type: DELETE_ITEM_FROM_COMPARE, id})
 
 export const getSubsidyList = (company) => {
     return async (dispatch) => {

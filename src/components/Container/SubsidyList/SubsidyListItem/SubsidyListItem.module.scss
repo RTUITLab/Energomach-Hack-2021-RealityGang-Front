@@ -1,7 +1,12 @@
 @import "./src/common/style";
 
 .itemContainer {
-    display: block;
+    @include flexible();
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
     cursor: pointer;
     transition: all 0.4s ease;
     background-color: #ffffff;
@@ -14,22 +19,51 @@
 }
 
 .title {
+    display: block;
     line-height: 1.5;
     color: $primary-color-text;
     font-size: 16px;
     font-weight: bold;
-    margin-bottom: 50px;
+    padding-bottom: 50px;
+
+    &:hover {
+        color: $primary-color-text;
+    }
 }
 
 .footer {
+    width: 100%;
     @include flexible();
     justify-content: space-between;
 }
 
 .compareBtn {
+    position: relative;
+    z-index: 10;
     @include primary-btn();
     width: 176px;
     height: 37px;
+
+    &:disabled {
+        background-color: #b4c9d1;
+        color: black;
+        cursor: default;
+    }
+}
+
+.deleteCompareBtn {
+    position: relative;
+    z-index: 10;
+    @include primary-btn();
+    background-color: #b4c9d1;
+    width: 176px;
+    height: 37px;
+    color: black;
+
+    &:hover {
+        background-color: #C7D5DB;
+        color: black;
+    }
 }
 
 .arrow {
