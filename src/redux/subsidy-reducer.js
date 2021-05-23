@@ -7,6 +7,7 @@ const SET_SUBSIDY_DATA2 = 'SET_SUBSIDY_DATA2'
 const SET_SUBSIDY_DATA3 = 'SET_SUBSIDY_DATA3'
 const ADD_ITEM_TO_COMPARE = 'ADD_ITEM_TO_COMPARE'
 const DELETE_ITEM_FROM_COMPARE = 'DELETE_ITEM_FROM_COMPARE'
+const DELETE_ALL_ITEMS = 'DELETE_ALL_ITEMS'
 
 let initialState = {
     subsidyList: [],
@@ -43,6 +44,11 @@ const subsidyReducer = (state = initialState, action) => {
                 ...state,
                 subsidyCompare: [...state.subsidyCompare, action.itemData]
             }
+        case DELETE_ALL_ITEMS:
+            return {
+                ...state,
+                subsidyCompare: []
+            }
         case DELETE_ITEM_FROM_COMPARE:
 
             return {
@@ -63,6 +69,7 @@ export const setSubsidy2 = (subsidyData2) => ({type: SET_SUBSIDY_DATA2, subsidyD
 export const setSubsidy3 = (subsidyData3) => ({type: SET_SUBSIDY_DATA3, subsidyData3})
 export const addItemToCompare = (itemData) => ({type: ADD_ITEM_TO_COMPARE, itemData})
 export const deleteItemFromCompare = (id) => ({type: DELETE_ITEM_FROM_COMPARE, id})
+export const deleteAllItems = () => ({type: DELETE_ALL_ITEMS})
 
 export const getSubsidyList = (company) => {
     return async (dispatch) => {
@@ -71,6 +78,7 @@ export const getSubsidyList = (company) => {
             let response = await subsidyApi.getSubsidyList(company)
             console.log('getSubsidyList', response)
             if(response.status === 200) {
+                dispatch(deleteAllItems())
                 dispatch(setSubsidyList(response.data))
             }
             dispatch(toggleIsFetching(false))

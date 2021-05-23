@@ -76,7 +76,7 @@ export const getFilters = () => { //Получить фильтры
             console.log('getFilters', response)
             if(response.status === 200) {
                 dispatch(setFilters(response.data))
-                dispatch(toast.success('Данные успешно получены'))
+                dispatch(toast.success('Данные подгружены из Вашего профиля'))
             }
             dispatch(toggleIsFetching(false))
         }
