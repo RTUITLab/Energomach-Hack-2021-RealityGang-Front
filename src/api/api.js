@@ -81,4 +81,10 @@ export const subsidyApi = {
             .then(response => response.data)
     },
 
+    getSubsidyData(id) {
+        let data = getFormData([{name: 'id', value: id}])
+        return axios.post(baseUrl + `api/get_selected_subsidy`, data)
+            .then(response => response.data)
+    },
+
 }

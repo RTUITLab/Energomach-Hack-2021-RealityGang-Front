@@ -1,11 +1,16 @@
-import {subsidyApi} from "../api/api";
+import {subsidyApi} from '../api/api'
 import {toggleIsFetching} from './auth-reducer'
 
 const SET_SUBSIDY_LIST = 'SET_SUBSIDY_LIST'
+const SET_SUBSIDY_DATA = 'SET_SUBSIDY_DATA'
+const SET_SUBSIDY_DATA2 = 'SET_SUBSIDY_DATA2'
+const SET_SUBSIDY_DATA3 = 'SET_SUBSIDY_DATA3'
 
 let initialState = {
     subsidyList: [],
-
+    subsidyData: [],
+    subsidyData2: [],
+    subsidyData3: [],
 }
 
 const subsidyReducer = (state = initialState, action) => {
@@ -13,14 +18,32 @@ const subsidyReducer = (state = initialState, action) => {
         case SET_SUBSIDY_LIST:
             return {
                 ...state,
-                isInitialize: action.isInitialize
+                subsidyList: action.subsidyList
+            }
+        case SET_SUBSIDY_DATA:
+            return {
+                ...state,
+                subsidyData: action.subsidyData
+            }
+        case SET_SUBSIDY_DATA2:
+            return {
+                ...state,
+                subsidyData2: action.subsidyData2
+            }
+        case SET_SUBSIDY_DATA3:
+            return {
+                ...state,
+                subsidyData3: action.subsidyData3
             }
         default:
-            return state;
+            return state
     }
 }
 
-export const setSubsidyList = (list) => ({type: SET_SUBSIDY_LIST, list})
+export const setSubsidyList = (subsidyList) => ({type: SET_SUBSIDY_LIST, subsidyList})
+export const setSubsidy = (subsidyData) => ({type: SET_SUBSIDY_DATA, subsidyData})
+export const setSubsidy2 = (subsidyData2) => ({type: SET_SUBSIDY_DATA2, subsidyData2})
+export const setSubsidy3 = (subsidyData3) => ({type: SET_SUBSIDY_DATA3, subsidyData3})
 
 
 export const getSubsidyList = (company) => {
@@ -33,10 +56,32 @@ export const getSubsidyList = (company) => {
                 dispatch(setSubsidyList(response.data))
             }
             dispatch(toggleIsFetching(false))
-        }
-        catch (error) {
+        } catch (error) {
             // console.log('getSubsidyList error', error.toJSON())
             // window.alert('getSubsidyList error')
+            dispatch(toggleIsFetching(false))
+        }
+    }
+}
+export const getSubsidyData = (id, index = 1) => {
+    return async (dispatch) => {
+        dispatch(toggleIsFetching(true))
+        try {
+            let response = await subsidyApi.getSubsidyData(id)
+            console.log('getSubsidyData', response)
+            if(response.status === 200) {
+                if(index === 1) {
+                    dispatch(setSubsidy(response.data))
+                } else if(index === 2) {
+                    dispatch(setSubsidy2(response.data))
+                } else if(index === 3) {
+                    dispatch(setSubsidy3(response.data))
+                }
+            }
+            dispatch(toggleIsFetching(false))
+        } catch (error) {
+            // console.log('getSubsidyData error', error.toJSON())
+            // window.alert('getSubsidyData error')
             dispatch(toggleIsFetching(false))
         }
     }

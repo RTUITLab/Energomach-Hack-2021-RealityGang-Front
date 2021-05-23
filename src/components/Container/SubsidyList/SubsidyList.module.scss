@@ -43,10 +43,19 @@
 .content {
     background-color: #ececec;
     padding: 30px 0 70px;
+    min-height: 75vh;
 }
 
 .list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 27px;
+}
+
+.notFount {
+    text-align: center;
+    margin-top: 50px;
+    color: $primary-color-text;
+    font-weight: 500;
+    font-size: 18px;
 }

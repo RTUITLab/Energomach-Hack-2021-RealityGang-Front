@@ -1,8 +1,11 @@
 import React from 'react'
 import s from './SubsidyList.module.scss'
 import SubsidyListItem from './SubsidyListItem/SubsidyListItem'
+import {withRequestFetching} from '../../../hoc/withRequestFetching'
+import {compose} from 'redux'
 
 const SubsidyList = (props) => {
+
     return (
         <div className={s.subsidy}>
             <div className={s.topContainer}>
@@ -21,8 +24,20 @@ const SubsidyList = (props) => {
             <div className={s.content}>
                 <div className='container'>
                     <div className={s.list}>
-                        {/* eslint-disable-next-line react/jsx-no-undef */}
-                        <SubsidyListItem />
+                        {
+                            props.subsidyList?.length > 0
+                                ?
+                                props.subsidyList.map((sub, index) => {
+                                    return <SubsidyListItem {...sub} key={index} />
+                                })
+                                :
+                                <>
+                                    <div></div>
+                                    <div className={s.notFount}>
+                                        Ничего не найдено
+                                    </div>
+                                </>
+                        }
                     </div>
                 </div>
             </div>
@@ -30,4 +45,6 @@ const SubsidyList = (props) => {
     )
 }
 
-export default SubsidyList
+export default compose(
+    withRequestFetching
+)(SubsidyList)

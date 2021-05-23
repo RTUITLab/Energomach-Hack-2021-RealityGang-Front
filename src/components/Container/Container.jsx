@@ -4,6 +4,7 @@ import Main from './Main/Main'
 import FormContainer from './Form/FormContainer'
 import SubsidyListContainer from './SubsidyList/SubsidyListContainer'
 import SubsidyContainer from './Subsidy/SubsidyContainer'
+import CompareContainer from './Compare/CompareContainer'
 
 const Container = (props) => {
     return (
@@ -13,6 +14,7 @@ const Container = (props) => {
                 <Route exact path='/form' render={ () => <FormContainer />} />
                 <Route exact path='/subsidy_list' render={ () => <SubsidyListContainer />} />
                 <Route exact path='/subsidy/:id' render={ () => <SubsidyContainer />} />
+                <Route exact path='/compare' render={ () => <CompareContainer />} />
             </Switch>
         </>
     )

@@ -79,7 +79,7 @@ const FormContainer = (props) => {
             form: form,
         }
         dispatch(getSubsidyList(object))
-        // history.push('/subsidy_list')
+        history.push('/subsidy_list')
     }
 
     const animations = {

@@ -5,9 +5,9 @@ import {NavLink} from 'react-router-dom'
 
 const SubsidyListItem = (props) => {
     return (
-        <NavLink to={`/subsidy/${props.id}`} className={s.itemContainer}>
+        <NavLink to={`/subsidy/${props.ID}`} className={s.itemContainer}>
             <div className={s.title}>
-                Субсидия на возмещение части затрат на уплату процентов по кредитам на закупку воздушных судов
+                {props.SMALL_NAME}
             </div>
             <div className={s.footer}>
                 <button className={s.compareBtn}>
