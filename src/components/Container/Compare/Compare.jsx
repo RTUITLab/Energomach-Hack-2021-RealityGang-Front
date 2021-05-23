@@ -2,7 +2,6 @@ import React from 'react'
 import s from './Compare.module.scss'
 
 const Compare = ({subsidyCompare, ...props}) => {
-    debugger
     return (
         <div className={s.compare}>
             <div className={s.topContainer}>

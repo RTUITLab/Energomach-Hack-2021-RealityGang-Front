@@ -34,6 +34,7 @@
 
 .logoutBtn {
     @include navbarBtn();
+    margin-left: 40px;
     width: 140px;
 }
 
@@ -41,7 +42,7 @@
     @include navbarBtn();
     @include flexible();
     width: 140px;
-    margin-left: 40px;
+
     justify-content: center;
     &:hover {
         color: $primary-color-text;
@@ -53,7 +54,6 @@
     @include flexible();
     justify-content: center;
     width: 191px;
-    margin-left: 40px;
     &:hover {
         color: $primary-color-text;
     }
