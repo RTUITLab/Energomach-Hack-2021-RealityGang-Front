@@ -14,7 +14,7 @@ const FormContainer = (props) => {
     const filters = useSelector((state) => state.filter.filters)
     const isAuth = useSelector((state) => state.auth.isAuth)
 
-    const [inn, setInn] = useState('7735010706')
+    const [inn, setInn] = useState('')
     const [ogrn, setOgrn] = useState('')
 
     const [okved, setOkved] = useState([])

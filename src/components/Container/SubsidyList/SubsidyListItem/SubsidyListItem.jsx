@@ -27,7 +27,11 @@ const SubsidyListItem = (props) => {
             <div className={s.itemContainer}>
                 <NavLink to={`/subsidy/${props.ID}`} className={s.title}>
                     {props.SMALL_NAME}
+                    <div className={s.relevance}>
+                        Релевантность: {(Number(props.RELEVANCE) * 10).toFixed(2)}
+                    </div>
                 </NavLink>
+
                 <div className={s.footer}>
 
                     {

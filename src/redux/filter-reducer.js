@@ -31,10 +31,11 @@ export const fillInn = (inn) => { //Информация по ИНН
             let response = await filterApi.fillInn(inn)
             console.log('inn', response)
             if(response.status === 404) {
-                dispatch(toast.error('Ничего не найдено по ИНН'))
+                dispatch(toast.error('Предприятия нет в базе данных'))
             }
             if(response.status === 200) {
                 dispatch(setFilters(response.data))
+                dispatch(toast.success('Предприятие найдено'))
             }
             dispatch(toggleIsFetching(false))
         }
@@ -52,10 +53,11 @@ export const fillOgrn = (ogrn) => { //Информация по ОГРН
             let response = await filterApi.fillOgrn(ogrn)
             console.log('ogrn', response)
             if(response.status === 404) {
-                dispatch(toast.error('Ничего не найдено по ОГРН'))
+                dispatch(toast.error('Предприятия нет в базе данных'))
             }
             if(response.status === 200) {
                 dispatch(setFilters(response.data))
+                dispatch(toast.success('Предприятие найдено'))
             }
             dispatch(toggleIsFetching(false))
         }
@@ -72,11 +74,9 @@ export const getFilters = () => { //Получить фильтры
         try {
             let response = await filterApi.getFilters()
             console.log('getFilters', response)
-            if(response.status === 404) {
-                dispatch(toast.error('Ничего не найдено по пользователю'))
-            }
             if(response.status === 200) {
                 dispatch(setFilters(response.data))
+                dispatch(toast.success('Данные успешно получены'))
             }
             dispatch(toggleIsFetching(false))
         }
@@ -93,11 +93,8 @@ export const saveFilters = (company) => { //Сохранить фильтры
         try {
             let response = await filterApi.saveFilters(company)
             console.log('saveFilters', response)
-            if(response.status === 404) {
-                dispatch(toast.error('Ничего не найдено по пользователю'))
-            }
             if(response === 200) {
-                dispatch(toast.success('Фильтры успешно сохранены'))
+                dispatch(toast.success('Данные успешно сохранены'))
             }
             dispatch(toggleIsFetching(false))
         }

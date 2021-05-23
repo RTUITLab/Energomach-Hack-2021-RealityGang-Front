@@ -6,11 +6,11 @@
 
 .topContainer {
     background-color: rgba(159, 111, 90, 0.2);
-    border-bottom-right-radius: 100px;
+    //border-bottom-right-radius: 100px;
 }
 
 .top {
-    padding: 50px 0 100px;
+    padding: 49px 0;
     @include flexible();
     justify-content: space-between;
 }
@@ -92,6 +92,7 @@
 }
 
 .content_title {
+    padding-top: 60px;
     color: $primary-color-text;
     font-size: 18px;
     font-weight: bold;

@@ -2,6 +2,7 @@ import React from 'react'
 import Compare from './Compare'
 import {motion} from "framer-motion";
 import {useSelector} from 'react-redux'
+import {Redirect} from 'react-router-dom'
 
 const CompareContainer = () => {
 
@@ -19,6 +20,11 @@ const CompareContainer = () => {
             y:0,
         }
     }
+
+    if(subsidyCompare.length !== 2) {
+        return <Redirect to={'/'} />
+    }
+
     return (
         <motion.div variants={animations} initial="hidden" animate="visible"
                     transition={{ duration: 1 }}

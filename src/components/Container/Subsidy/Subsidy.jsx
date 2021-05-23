@@ -36,19 +36,19 @@ const Subsidy = ({subsidyData, ...props}) => {
                             {/*    {subsidyData.NPA_NAME}*/}
                             {/*</div>*/}
                             <div className={s.itemContainer}>
-                                <span className={s.item}>Описание меры поддержки:</span>
+                                <span className={s.item}>Описание меры поддержки :</span>
                                 {subsidyData.DESCRIPTION}
                             </div>
                             <div className={s.itemContainer}>
-                                <span className={s.item}>Цели предоставления поддержки:</span>
+                                <span className={s.item}>Цели предоставления поддержки: </span>
                                 {subsidyData.PURPOSE}
                             </div>
                             <div className={s.itemContainer}>
-                                <span className={s.item}>Задачи предоставления поддержки:</span>
+                                <span className={s.item}>Задачи предоставления поддержки: </span>
                                 {subsidyData.OBJECTIVE}
                             </div>
                             <div className={s.itemContainer}>
-                                <span className={s.item}>Тип меры поддержки:</span>
+                                <span className={s.item}>Тип меры поддержки: </span>
                                 {subsidyData.TYPE_MERA}
                             </div>
                         </div>

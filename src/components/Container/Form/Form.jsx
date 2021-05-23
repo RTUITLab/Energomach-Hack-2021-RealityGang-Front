@@ -41,12 +41,12 @@ const Form = (props) => {
                 </div>
             </div>
             <div className={'container'}>
-                <div className={s.searchInputContainer}>
-                    <input placeholder='Введите ключевые слова' className={s.searchInput} id='searchInput' type='text' />
-                    <label className={s.searchLabel} htmlFor='searchInput'>
-                        <img src={search} alt='loup' />
-                    </label>
-                </div>
+                {/*<div className={s.searchInputContainer}>*/}
+                {/*    <input placeholder='Введите ключевые слова' className={s.searchInput} id='searchInput' type='text' />*/}
+                {/*    <label className={s.searchLabel} htmlFor='searchInput'>*/}
+                {/*        <img src={search} alt='loup' />*/}
+                {/*    </label>*/}
+                {/*</div>*/}
                 <h3 className={s.content_title}>Заполните информацию о предприятии</h3>
                 <div className={s.content}>
                     <div className={s.filterContainer}>

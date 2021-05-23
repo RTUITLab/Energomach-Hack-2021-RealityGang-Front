@@ -1,5 +1,4 @@
 import * as axios from "axios";
-import {fillInn} from '../redux/filter-reducer'
 
 let baseUrl = process.env.REACT_APP_PRODUCTION_URL
 
