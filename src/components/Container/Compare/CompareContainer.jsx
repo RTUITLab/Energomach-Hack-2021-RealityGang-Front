@@ -1,8 +1,11 @@
 import React from 'react'
 import Compare from './Compare'
 import {motion} from "framer-motion";
+import {useSelector} from 'react-redux'
 
 const CompareContainer = () => {
+
+    const subsidyCompare = useSelector(state => state.subsidy.subsidyCompare)
 
     const animations = {
         hidden: {
@@ -20,7 +23,7 @@ const CompareContainer = () => {
         <motion.div variants={animations} initial="hidden" animate="visible"
                     transition={{ duration: 1 }}
         >
-            <Compare />
+            <Compare subsidyCompare={subsidyCompare} />
         </motion.div>
     )
 }
