@@ -52,11 +52,11 @@ const Form = (props) => {
                     <div className={s.filterContainer}>
                         <div className={s.textInputs}>
                             <div className={s.textInputContainer}>
-                                <input maxLength={15} id={'inn'} value={props.inn} onChange={(e) => props.setInn(e.target.value)} placeholder='Введите ИНН' type='text' className={s.textInput} />
+                                <input maxLength={25} id={'inn'} value={props.inn} onChange={(e) => props.setInn(e.target.value)} placeholder='Введите ИНН' type='text' className={s.textInput} />
                                 <button onClick={props.handleFindInn} className={s.fill}>Заполнить по ИНН</button>
                             </div>
                             <div className={s.textInputContainer}>
-                                <input maxLength={15} id={'ogrn'} value={props.ogrn} onChange={(e) => props.setOgrn(e.target.value)} placeholder='Введите ОГРН' type='text' className={s.textInput} />
+                                <input maxLength={25} id={'ogrn'} value={props.ogrn} onChange={(e) => props.setOgrn(e.target.value)} placeholder='Введите ОГРН' type='text' className={s.textInput} />
                                 <button onClick={props.handleFindOgrn} className={s.fill}>Заполнить по ОГРН</button>
                             </div>
                         </div>
